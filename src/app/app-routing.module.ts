@@ -13,7 +13,7 @@ const appRoutes : Routes = [
     .then(m => m.ShoppingListModule)}
 ];
 @NgModule({
-    imports: [RouterModule.forRoot(appRoutes,{preloadingStrategy:PreloadAllModules})],
+    imports: [RouterModule.forRoot(appRoutes, {preloadingStrategy:PreloadAllModules})],
     exports:[RouterModule]
 })
 export class AppRoutingModule {
