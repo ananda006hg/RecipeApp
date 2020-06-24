@@ -9,7 +9,7 @@ import { Routes, RouterModule } from "@angular/router";
 
 
 const appRoutes : Routes = [
-    {path: 'reciepes', component: RecipesComponent,
+    {path: '', component: RecipesComponent,
     canActivate:[AuthGaurd],
     children:[
         {path:'', component: RecipeStartComponent},
