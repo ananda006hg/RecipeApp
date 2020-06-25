@@ -4,6 +4,7 @@ import {catchError,tap} from 'rxjs/operators';
 import { throwError, BehaviorSubject } from 'rxjs';
 import { User } from "./user.modal";
 import { Router } from "@angular/router";
+import { environment} from "../../environments/environment"
 
 export interface AuthResponseData {
     kind:string;
@@ -24,7 +25,7 @@ private tokenExpirationTimer:any;
 
     }
 singup(email:string, password:string) {
- return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCUvKUCRAzIWW95-oUAN5eu2NohD1sHnaA',
+ return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key='+ environment.firebaseAPIKey,
  {
     email:email,
     password:password,
@@ -40,7 +41,7 @@ singup(email:string, password:string) {
 
 
 login(email:string , password:string){
-return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCUvKUCRAzIWW95-oUAN5eu2NohD1sHnaA',{
+return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key='+environment.firebaseAPIKey,{
     
         email:email,
         password:password,
