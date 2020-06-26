@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Ingredient } from '../shared/ingredients.model'
 import { Subscription, Observable } from 'rxjs';
 import { Store } from '@ngrx/store'
-import * as fromShoppingList from './shopping-edit/store/shopping-list.reducer';
 import * as shoppingListActions from './shopping-edit/store/shopping-list.actions';
+import * as  fromApp from '../store/app.reducer';
 
 @Component({
   selector: 'app-shopping-list',
@@ -14,7 +14,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 ingredients: Observable<{ingredients:Ingredient[]}>;
 
 private igChangedSub: Subscription;
-  constructor(private store: Store<fromShoppingList.AppState>) { 
+  constructor(private store: Store<fromApp.AppState>) { 
 
   }
 
